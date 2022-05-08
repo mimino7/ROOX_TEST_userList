@@ -1,0 +1,49 @@
+
+.title__wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 11px;
+}
+.form {
+    display: flex;
+    flex-direction: column  ;
+    width: 438px;
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 8px;
+    padding: 20px 12px 10px;
+    .us__wrap {
+        display: flex;
+        flex-direction: column;
+        .label {
+            font-size: 8px;
+            line-height: 9px;
+        }
+        .inp {
+            outline: none;
+            width: 211px;
+            height: 22px;
+            margin: 3px 0 10px 0;
+            padding: 5px 10px;
+            background: #FFFFFF;
+            border: 1px solid #D8D8D8;
+            border-radius: 5px;
+            font-size: 10px;
+            line-height: 12px;
+            color: rgba(0, 0, 0, 0.3);
+        }
+        .comm {
+            width: 420px;
+            height: 55px;
+        }
+    }
+}
+button {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-top: 10px;
+    background: none;
+    outline: none;
+    border: none;
+}
