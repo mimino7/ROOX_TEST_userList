@@ -11,19 +11,16 @@ interface UserFormProps  {
 }
 
 const UserForm :FC<UserFormProps> = ({users}) => {
-    // users[0].address
     return (
-    <   >
+    <>
         <div className={cl.title__wrap}>
-        <Title  fontSize='14px' 
-                fontWeight={700}
-                lineHeight='16.41px'>
-            Профиль пользователя
-        </Title>
-        <Button variant={BottonVariant.blue}>Редактировать</Button>
+            <Title  fontSize='14px' 
+                    fontWeight={700}
+                    lineHeight='16.41px'>
+                Профиль пользователя
+            </Title>
+            <Button variant={BottonVariant.blue}>Редактировать</Button>
         </div>
-        
-        {/*  */}
             <form  action="">
                 <div className={cl.form}>
                     <div className={cl.us__wrap}>
