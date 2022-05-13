@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { IUser } from '../../types/types'
@@ -7,19 +8,33 @@ import cl from './users.module.scss'
 
 interface UsersProps {
     users: IUser[];
+    loading: boolean;
+    error: boolean;
 }
 
-const Users:FC<UsersProps> = ({users}) => {
-var k = 0;
+const Users:FC<UsersProps> = ({users, loading, error}) => {
+    var k = 0;
     
     return (
     <div className={cl.cont__right}>
         <Title fontSize='14px' fontWeight={700}
                 lineHeight='16.41px'>&nbsp; Список пользователей</Title>
-        {users && users.map((us) => {
+        {loading && 
+                <div className={cl.load_wrap}>
+                    <CircularProgress color="inherit" />
+                </div>
+                }        
+        {error && 
+                <div className={cl.load_wrap}>
+                    <CircularProgress color="inherit" />
+                <span>AxiosError: Network Error</span> 
+                </div>
+                }        
+        {users && !error && users.map((us) => {
             k++;
             return (
             <div key={us.id} className={cl.card__wrap}>
+                
                 <div className={cl.card__left}>
                     <div key={us.id} className={cl.card__info}>
                         <span>ФИО:</span>  <p>{us.name}</p>  

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { FC, useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { GET_USERS } from '../../API/constans'
+import { GET_USERS, SORT_CITY, SORT_COMP } from '../../API/constans'
 import UserForm from '../../Components/UserForm/UserForm'
 import Users from '../../Components/Users/Users'
 import { IUser } from '../../types/types'
@@ -19,7 +19,7 @@ const UsersList: FC<UsersListProps> = () => {
   const [users, setUsers] = useState<IUser[]>([]);
   const [isLoading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
-console.log(users);
+// console.log(users);
 
   async function FetchUsers () {
       try {
@@ -29,7 +29,7 @@ console.log(users);
       }
       catch(e) {
           setError(true)
-          alert(e)
+          // alert(e)
       }
       finally {
           setLoading(false)
@@ -40,6 +40,26 @@ console.log(users);
       FetchUsers() 
   }, [])
 
+  function sorted (sort: string) {
+    const usersSorted = [...users].sort(function (a, b) {
+      let cityA = sort === 'city' ? a.address.city
+                                  : a.company.name , 
+          cityB = sort === 'city' ? b.address.city 
+                                  : b.company.name 
+      if (cityA < cityB) return -1
+      if (cityA > cityB) return 1
+        return 0
+    })
+    setUsers(usersSorted);
+  }
+
+  function sortedCompany () {
+    sorted(SORT_COMP)
+  }
+  function sortedCity () {
+    sorted(SORT_CITY)
+  }
+
   return (
     <div className={cl.users__cont}>
       <div className={cl.users__left}>
@@ -48,12 +68,14 @@ console.log(users);
             <Title>Сортировка</Title>
           </div>
           <div className={cl.comp__wrap}>
-              <Button variant={BottonVariant.blue}>
+              <Button variant={BottonVariant.blue}
+                      onclick={sortedCity}>
                 <Title>по городу</Title>
               </Button>
           </div>
           <div className={cl.comp__wrap}>
-              <Button variant={BottonVariant.blue}>
+              <Button variant={BottonVariant.blue}
+                      onclick={sortedCompany}>
                 <Title>по компании</Title>
               </Button>
           </div>
@@ -61,7 +83,11 @@ console.log(users);
       </div>
       <div className={cl.users__right}>
           <Routes>
-            <Route path='/users' element={<Users users={users}/>}/>
+            <Route path='/users' element={
+                          <Users 
+                              loading={isLoading}
+                              error={isError}
+                              users={users}/>}/>
             <Route path='/users/user' element={<UserForm />}/>
           </Routes>
       </div>

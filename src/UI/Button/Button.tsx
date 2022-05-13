@@ -13,11 +13,13 @@ interface ButtonProps {
     variant?: BottonVariant;
     children: React.ReactNode;
     disabled?: boolean;
+    onclick?: () => void;
 };
 
-const Button: FC<ButtonProps> = ({variant, children, disabled}) => {
+const Button: FC<ButtonProps> = ({variant, children, disabled, onclick}) => {
     return (
     <div 
+    onClick={onclick}
     className={cx(cl.btn,
     {[cl.disabled]: disabled},
     {[cl.green]: variant === BottonVariant.green},
