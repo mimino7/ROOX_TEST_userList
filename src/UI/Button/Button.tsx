@@ -21,8 +21,8 @@ const Button: FC<ButtonProps> = ({variant, children, disabled, onclick}) => {
     <div 
     onClick={onclick}
     className={cx(cl.btn,
-    {[cl.disabled]: disabled},
-    {[cl.green]: variant === BottonVariant.green},
+        {[cl.green]: variant === BottonVariant.green},
+        {[cl.disabled]: disabled},
     )} 
     >
         <span>{children}</span> 

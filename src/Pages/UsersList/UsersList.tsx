@@ -19,7 +19,9 @@ const UsersList: FC<UsersListProps> = () => {
   const [users, setUsers] = useState<IUser[]>([]);
   const [isLoading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
-// console.log(users);
+  const [current, setCurrent] = useState(1);
+
+  // console.log(current);
 
   async function FetchUsers () {
       try {
@@ -60,6 +62,11 @@ const UsersList: FC<UsersListProps> = () => {
     sorted(SORT_CITY)
   }
 
+  function handleId (id: number) {
+    setCurrent(id)
+    console.log(current, id);
+  }
+
   return (
     <div className={cl.users__cont}>
       <div className={cl.users__left}>
@@ -85,10 +92,11 @@ const UsersList: FC<UsersListProps> = () => {
           <Routes>
             <Route path='/users' element={
                           <Users 
+                              handleId={handleId}
                               loading={isLoading}
                               error={isError}
                               users={users}/>}/>
-            <Route path='/users/user' element={<UserForm />}/>
+            <Route path='/users/user' element={<UserForm id={current} users={users} />}/>
           </Routes>
       </div>
       

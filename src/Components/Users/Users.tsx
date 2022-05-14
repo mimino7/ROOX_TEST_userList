@@ -10,9 +10,11 @@ interface UsersProps {
     users: IUser[];
     loading: boolean;
     error: boolean;
+    handleId: (id: number) => void;
+    
 }
 
-const Users:FC<UsersProps> = ({users, loading, error}) => {
+const Users:FC<UsersProps> = ({users, loading, error, handleId}) => {
     var k = 0;
     
     return (
@@ -47,8 +49,8 @@ const Users:FC<UsersProps> = ({users, loading, error}) => {
                     </div>
                 </div>
                 <div className={cl.card__right}>
-                    <div className={cl.card__info}>
-                        <Link to="/users/user">Подробнее</Link>  
+                    <div onClick={() => handleId(us.id)} className={cl.card__info}>
+                        <Link  to="/users/user">Подробнее</Link>  
                     </div> 
                 </div>
             </div>
