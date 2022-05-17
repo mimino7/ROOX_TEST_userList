@@ -1,58 +1,58 @@
 .load_wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 500px;
-    color: #bdbdbd;
-    span {
-        // color: #D91313;
-        margin-top: 10px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  color: #bdbdbd;
+  span {
+    // color: #D91313;
+    margin-top: 10px;
+  }
 }
 .card__wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 420px;
+  height: 73px;
+  margin-top: 20px;
+  background: #f3f3f3;
+  border-radius: 8px;
+  padding: 10px;
+  .card__left {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 420px;
-    height: 73px;
-    margin-top: 20px;
-    background: #f3f3f3;
-    border-radius: 8px;
-    padding: 10px;
-    .card__left {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        font-size: 11px;
-        line-height: 13px;
-        .card__info {
-            display: flex;
-            span {
-                color: #a3a3a3;
-                margin-right: 7px;
-            }
-        }
+    height: 100%;
+    font-size: 11px;
+    line-height: 13px;
+    .card__info {
+      display: flex;
+      span {
+        color: #a3a3a3;
+        margin-right: 7px;
+      }
     }
-    .card__right {
-        display: flex;
-        flex-direction: column-reverse;
-        font-size: 12px;
-        line-height: 14px;
+  }
+  .card__right {
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 12px;
+    line-height: 14px;
 
-        a {
-            text-decoration: none;
-            color: #4b51ef;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #4b51ef;
-        }
+    a {
+      text-decoration: none;
+      color: #4b51ef;
     }
+    a:hover {
+      text-decoration: underline;
+      color: #4b51ef;
+    }
+  }
 }
 .list__wrap {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
 }

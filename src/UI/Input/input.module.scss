@@ -1,16 +1,19 @@
 .inp {
-    outline: none;
-    width: 211px;
-    height: 22px;
-    margin: 3px 0 10px 0;
-    padding: 5px 10px;
-    background: #ffffff;
-    border: 1px solid #d8d8d8;
-    border-radius: 5px;
-    font-size: 10px;
-    line-height: 12px;
-    color: rgba(0, 0, 0, 0.3);
+  outline: none;
+  width: 211px;
+  height: 22px;
+  margin: 3px 0 10px 0;
+  padding: 5px 10px;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(0, 0, 0, 0.3);
 }
 .edit {
-    color: #000000;
+  color: #000000;
+}
+.valid {
+  border-color: #d91313;
 }

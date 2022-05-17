@@ -11,14 +11,19 @@ interface InputProps {
 }
 
 const Input: FC<InputProps> = ({ readOnly, res, usFormData }) => {
-  let resForm = res.replace(/\s+/g, "");
+  const [isValid, setValid] = useState(true);
   const [value, setValue] = useState<string>("");
+
+  let resForm = res.replace(/\s+/g, "");
+
   useEffect(() => {
-    setValue(usFormData && usFormData[resForm]);
-  }, [usFormData, resForm]);
+    setValue(usFormData && isValid ? usFormData[resForm] : "");
+  }, [usFormData, resForm, isValid]);
 
   function handleValue(e: React.ChangeEvent<HTMLInputElement>) {
-    setValue(e.target.value);
+    let enterStr = e.target.value;
+    setValue(enterStr);
+    enterStr.length ? setValid(true) : setValid(false);
   }
 
   return (
@@ -26,7 +31,11 @@ const Input: FC<InputProps> = ({ readOnly, res, usFormData }) => {
       name={resForm}
       onChange={handleValue}
       readOnly={readOnly && readOnly}
-      className={cx(cl.inp, { [cl.edit]: !readOnly })}
+      className={cx(
+        cl.inp,
+        { [cl.edit]: !readOnly },
+        { [cl.valid]: !isValid && !value }
+      )}
       type={
         res === "Email"
           ? "email"

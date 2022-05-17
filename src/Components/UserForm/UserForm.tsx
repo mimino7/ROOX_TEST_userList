@@ -7,6 +7,7 @@ import cl from "./userForm.module.scss";
 import cx from "classnames";
 import { UserKeys } from "../../API/constans";
 import Input from "../../UI/Input/Input";
+import Modal from "../../UI/Modal/Modal";
 
 interface UserFormProps {
   users?: IUser[];
@@ -15,6 +16,7 @@ interface UserFormProps {
 
 const UserForm: FC<UserFormProps> = ({ users, id }) => {
   const [readOnly, setReadOnly] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
 
   const handleEdit = () => {
     setReadOnly(false);
@@ -23,8 +25,14 @@ const UserForm: FC<UserFormProps> = ({ users, id }) => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     let formData = new FormData(event.currentTarget);
+    let com = event.currentTarget.comments.value;
+
     let obj = {};
     for (let [key, value] of formData.entries() as any) {
+      // if (!value && com === "") return setActiveModal(true);
+      if (key !== "comments") {
+        if (!value && com === "") return setActiveModal(true);
+      }
       obj = { ...obj, [key.toLowerCase()]: value };
     }
     console.log(JSON.stringify(obj));
@@ -50,6 +58,7 @@ const UserForm: FC<UserFormProps> = ({ users, id }) => {
 
   return (
     <>
+      <Modal setActiveModal={setActiveModal} active={activeModal} />
       <div className={cl.title__wrap}>
         <Title fontSize="14px" fontWeight={700} lineHeight="16.41px">
           Профиль пользователя
@@ -82,7 +91,6 @@ const UserForm: FC<UserFormProps> = ({ users, id }) => {
               <textarea
                 name="comments"
                 readOnly={readOnly && readOnly}
-                style={{ borderColor: "#D91313" }}
                 className={cx(cl.inp, cl.comm)}
                 id="com"
               />

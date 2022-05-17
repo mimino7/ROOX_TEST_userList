@@ -2,45 +2,45 @@ $base-color1: #4b51ef;
 $base-color2: #52cf4f;
 
 .btn {
-    display: inline-flex;
-    justify-content: center;
-    padding: 5px 15px 5px 15px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: $base-color1;
-    color: #ffffff;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    transition: 0.3s all;
-    span {
-        text-decoration: none;
-    }
+  display: inline-flex;
+  justify-content: center;
+  padding: 5px 15px 5px 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: $base-color1;
+  color: #ffffff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  transition: 0.3s all;
+  span {
+    text-decoration: none;
+  }
 }
 
 .green {
-    background-color: $base-color2;
+  background-color: $base-color2;
 }
 
 .disabled {
-    background-color: #afafaf;
-    pointer-events: none;
-    cursor: default;
+  background-color: #afafaf;
+  pointer-events: none;
+  cursor: default;
 }
 .btn:hover {
-    background-color: lighten($base-color1, 7%);
-    border: 1px solid #1b1e70;
+  background-color: lighten($base-color1, 7%);
+  border: 1px solid #1b1e70;
 }
 .btn:active {
-    background-color: darken($base-color1, 17%);
+  background-color: darken($base-color1, 17%);
 }
 .btn.green:hover {
-    background-color: lighten($base-color2, 7%);
-    border: 1px solid #1b1e70;
+  background-color: lighten($base-color2, 7%);
+  border: 1px solid #1b1e70;
 }
 .btn.green:active {
-    background-color: darken($base-color2, 17%);
+  background-color: darken($base-color2, 17%);
 }
