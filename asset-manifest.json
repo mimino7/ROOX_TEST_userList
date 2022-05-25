@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "//mimino7.github.io/ROOX_TEST_userList/static/css/main.70c78566.css",
-    "main.js": "//mimino7.github.io/ROOX_TEST_userList/static/js/main.5faf41a0.js",
+    "main.js": "//mimino7.github.io/ROOX_TEST_userList/static/js/main.a6b6225b.js",
     "index.html": "//mimino7.github.io/ROOX_TEST_userList/index.html",
     "main.70c78566.css.map": "//mimino7.github.io/ROOX_TEST_userList/static/css/main.70c78566.css.map",
-    "main.5faf41a0.js.map": "//mimino7.github.io/ROOX_TEST_userList/static/js/main.5faf41a0.js.map"
+    "main.a6b6225b.js.map": "//mimino7.github.io/ROOX_TEST_userList/static/js/main.a6b6225b.js.map"
   },
   "entrypoints": [
     "static/css/main.70c78566.css",
-    "static/js/main.5faf41a0.js"
+    "static/js/main.a6b6225b.js"
   ]
 }
